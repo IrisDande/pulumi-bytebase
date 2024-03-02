@@ -72,7 +72,7 @@ namespace bytebaseDatabase.bytebase
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "github://api.github.com/bytebase-io/pulumi-bytebase",
+                PluginDownloadURL = "github://api.github.com/IrisDande/pulumi-bytebase",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

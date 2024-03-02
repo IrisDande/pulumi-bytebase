@@ -53,7 +53,7 @@ namespace bytebaseDatabase.bytebase
         {
             var dst = src ?? new global::Pulumi.InvokeOptions{};
             dst.Version = src?.Version ?? Version;
-            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "github://api.github.com/bytebase-io/pulumi-bytebase";
+            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "github://api.github.com/IrisDande/pulumi-bytebase";
             return dst;
         }
 

@@ -7,7 +7,7 @@
     <Description>A Pulumi native provider for bytebase</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://www.bytebase.io</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/bytebase-io/pulumi-bytebase</RepositoryUrl>
+    <RepositoryUrl>https://github.com/IrisDande/pulumi-bytebase</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
 
     <TargetFramework>net6.0</TargetFramework>

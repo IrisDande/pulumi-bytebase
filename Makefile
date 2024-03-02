@@ -2,7 +2,7 @@ PROJECT_NAME := Pulumi bytebase Resource Provider
 
 PACK             := bytebase
 PACKDIR          := sdk
-PROJECT          := github.com/bytebase-io/pulumi-bytebase
+PROJECT          := github.com/IrisDande/pulumi-bytebase
 PROVIDER        := pulumi-resource-${PACK}
 VERSION         ?= $(shell pulumictl get version)
 PROVIDER_PATH   := provider

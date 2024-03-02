@@ -84,7 +84,7 @@ pulumi.export("output", {
 package main
 
 import (
-	"github.com/bytebase-io/pulumi-bytebase/sdk/go/bytebase"
+	"github.com/IrisDande/pulumi-bytebase/sdk/go/bytebase"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 

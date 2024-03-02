@@ -10,7 +10,7 @@ The Pulumi bytebase provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@bytebase-database/pulumi`](https://www.npmjs.com/package/@bytebase-database/pulumi)
 * Python: [`bytebase_pulumi`](https://pypi.org/project/bytebase_pulumi/)
-* Go: [`github.com/bytebase-io/pulumi-bytebase/sdk/go/port`](https://github.com/bytebase-io/pulumi-bytebase)
+* Go: [`github.com/IrisDande/pulumi-bytebase/sdk/go/port`](https://github.com/IrisDande/pulumi-bytebase)
 * * .NET: [`bytebaseDatabase.bytebase`](https://www.nuget.org/packages/bytebaseDatabase.bytebase)
 
 ### Node.js (JavaScript/TypeScript)
@@ -40,7 +40,7 @@ pip install bytebase_pulumi
 To use from Go, use `go get` to grab the latest version of the library:
 
 ```bash
-go get github.com/bytebase-io/pulumi-bytebase/sdk
+go get github.com/IrisDande/pulumi-bytebase/sdk
 ```
 
 ### .NET

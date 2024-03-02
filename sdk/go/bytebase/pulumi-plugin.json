@@ -1,5 +1,5 @@
 {
   "resource": true,
   "name": "bytebase",
-  "server": "github://api.github.com/bytebase-io/pulumi-bytebase"
+  "server": "github://api.github.com/IrisDande/pulumi-bytebase"
 }

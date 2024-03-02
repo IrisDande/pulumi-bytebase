@@ -26,7 +26,7 @@ setup(name='bytebase_pulumi',
       keywords='pulumi bytebase category/utility kind/native',
       url='https://www.bytebase.io',
       project_urls={
-          'Repository': 'https://github.com/bytebase-io/pulumi-bytebase'
+          'Repository': 'https://github.com/IrisDande/pulumi-bytebase'
       },
       license='Apache-2.0',
       packages=find_packages(),
