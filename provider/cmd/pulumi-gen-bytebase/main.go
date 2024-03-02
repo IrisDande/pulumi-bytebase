@@ -21,11 +21,11 @@ import (
 	"os"
 	"path/filepath"
 
-	dotnetgen "github.com/IrisDande/pulumi/pkg/v3/codegen/dotnet"
-	gogen "github.com/IrisDande/pulumi/pkg/v3/codegen/go"
-	nodejsgen "github.com/IrisDande/pulumi/pkg/v3/codegen/nodejs"
-	pygen "github.com/IrisDande/pulumi/pkg/v3/codegen/python"
-	"github.com/IrisDande/pulumi/pkg/v3/codegen/schema"
+	dotnetgen "github.com/IrisDande/pulumi-bytebase/pkg/v3/codegen/dotnet"
+	gogen "github.com/IrisDande/pulumi-bytebase/pkg/v3/codegen/go"
+	nodejsgen "github.com/IrisDande/pulumi-bytebase/pkg/v3/codegen/nodejs"
+	pygen "github.com/IrisDande/pulumi-bytebase/pkg/v3/codegen/python"
+	"github.com/IrisDande/pulumi-bytebase/pkg/v3/codegen/schema"
 	"github.com/pkg/errors"
 )
 
