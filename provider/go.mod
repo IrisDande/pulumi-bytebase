@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-bytebase
+module github.com/IrisDande/pulumi-bytebase
 
 go 1.21
 
