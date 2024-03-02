@@ -19,7 +19,6 @@ from pulumi.provider import ConstructResult
 import pulumi.provider as provider
 
 import bytebase_provider
-from bytebase_provider.staticpage import StaticPage, StaticPageArgs
 
 
 class Provider(provider.Provider):
@@ -42,14 +41,4 @@ class Provider(provider.Provider):
 def _construct_static_page(name: str,
                            inputs: Inputs,
                            options: Optional[ResourceOptions] = None) -> ConstructResult:
-
-    # Create the component resource.
-    static_page = StaticPage(name, StaticPageArgs.from_inputs(inputs), dict(inputs), options)
-
-    # Return the component resource's URN and outputs as its state.
-    return provider.ConstructResult(
-        urn=static_page.urn,
-        state={
-            'bucket': static_page.bucket,
-            'websiteUrl': static_page.website_url
-        })
+    return "Hello"
