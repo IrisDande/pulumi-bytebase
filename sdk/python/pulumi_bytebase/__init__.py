@@ -6,16 +6,23 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .provider import *
-from .random import *
+
+# Make subpackages available:
+if typing.TYPE_CHECKING:
+    import pulumi_bytebase.bytebase as __bytebase
+    bytebase = __bytebase
+else:
+    bytebase = _utilities.lazy_import('pulumi_bytebase.bytebase')
+
 _utilities.register(
     resource_modules="""
 [
  {
   "pkg": "bytebase",
-  "mod": "index",
-  "fqn": "pulumi_bytebase",
+  "mod": "bytebase",
+  "fqn": "pulumi_bytebase.bytebase",
   "classes": {
-   "bytebase:index:Random": "Random"
+   "bytebase:bytebase:Random": "Random"
   }
  }
 ]

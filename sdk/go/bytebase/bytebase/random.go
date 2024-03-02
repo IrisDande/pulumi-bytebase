@@ -31,7 +31,7 @@ func NewRandom(ctx *pulumi.Context,
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Random
-	err := ctx.RegisterResource("bytebase:index:Random", name, args, &resource, opts...)
+	err := ctx.RegisterResource("bytebase:bytebase:Random", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func NewRandom(ctx *pulumi.Context,
 func GetRandom(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RandomState, opts ...pulumi.ResourceOption) (*Random, error) {
 	var resource Random
-	err := ctx.ReadResource("bytebase:index:Random", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("bytebase:bytebase:Random", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

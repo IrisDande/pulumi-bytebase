@@ -7,7 +7,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities
+from .. import _utilities
 
 __all__ = ['RandomArgs', 'Random']
 
@@ -80,7 +80,7 @@ class Random(pulumi.CustomResource):
             __props__.__dict__["length"] = length
             __props__.__dict__["result"] = None
         super(Random, __self__).__init__(
-            'bytebase:index:Random',
+            'bytebase:bytebase:Random',
             resource_name,
             __props__,
             opts)

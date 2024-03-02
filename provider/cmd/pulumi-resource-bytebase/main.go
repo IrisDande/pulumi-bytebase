@@ -22,4 +22,4 @@ import (
 )
 
 // Serve the provider against Pulumi's Provider protocol.
-func main() { p.RunProvider(bytebase.Name, bytebase.Version, bytebase.Provider()) }
+func main() { p.RunProvider(bytebase.Name, version.Version, bytebase.Provider()) }

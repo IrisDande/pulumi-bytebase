@@ -13,9 +13,10 @@
         "strict": true
     },
     "files": [
+        "bytebase/index.ts",
+        "bytebase/random.ts",
         "index.ts",
         "provider.ts",
-        "random.ts",
         "utilities.ts"
     ]
 }

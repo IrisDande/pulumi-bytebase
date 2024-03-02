@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Bytebase
+namespace Pulumi.Bytebase.Bytebase
 {
-    [BytebaseResourceType("bytebase:index:Random")]
+    [BytebaseResourceType("bytebase:bytebase:Random")]
     public partial class Random : global::Pulumi.CustomResource
     {
         [Output("length")]
@@ -27,12 +27,12 @@ namespace Pulumi.Bytebase
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Random(string name, RandomArgs args, CustomResourceOptions? options = null)
-            : base("bytebase:index:Random", name, args ?? new RandomArgs(), MakeResourceOptions(options, ""))
+            : base("bytebase:bytebase:Random", name, args ?? new RandomArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Random(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("bytebase:index:Random", name, null, MakeResourceOptions(options, id))
+            : base("bytebase:bytebase:Random", name, null, MakeResourceOptions(options, id))
         {
         }
 
