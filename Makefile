@@ -1,11 +1,8 @@
-PROJECT_NAME := Pulumi bytebase Resource Provider
+PROJECT_NAME := Pulumi Pinecone Resource Provider
 
-PACK             := bytebase
+PACK             := pinecone
 PACKDIR          := sdk
-PROJECT          := github.com/IrisDande/pulumi-bytebase
-NODE_MODULE_NAME := @pulumi/bytebase
-NUGET_PKG_NAME   := Pulumi.bytebase
-
+PROJECT          := github.com/pinecone-io/pulumi-pinecone
 PROVIDER        := pulumi-resource-${PACK}
 VERSION         ?= $(shell pulumictl get version)
 PROVIDER_PATH   := provider
@@ -13,17 +10,32 @@ VERSION_PATH    := ${PROVIDER_PATH}.Version
 
 GOPATH			:= $(shell go env GOPATH)
 
+CODEGEN         := pulumi-gen-${PACK}
+SCHEMA_FILE     := provider/cmd/pulumi-resource-pinecone/schema.json
 WORKING_DIR     := $(shell pwd)
 EXAMPLES_DIR    := ${WORKING_DIR}/examples/yaml
 TESTPARALLELISM := 4
+BUILD_DIR		:= ${WORKING_DIR}/provider/cmd/pulumi-resource-pinecone
+
+export PATH := $(HOME)/go/bin:$(PATH)
 
 ensure::
 	cd provider && go mod tidy
 	cd sdk && go mod tidy
-	cd tests && go mod tidy
+	#cd tests && go mod tidy
 
-provider::
-	(cd provider && go build -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" $(PROJECT)/${PROVIDER_PATH}/cmd/$(PROVIDER))
+codegen::
+	(cd provider && VERSION=${VERSION} go generate cmd/${PROVIDER}/main.go)
+	(cd provider && go build -o $(WORKING_DIR)/bin/${CODEGEN} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/$(CODEGEN))
+	$(WORKING_DIR)/bin/${CODEGEN} $(SCHEMA_FILE) --version ${VERSION}
+
+generate:
+	@echo "Generating Go client from Swagger definition..."
+	@go install github.com/deepmap/oapi-codegen/v2/cmd/oapi-codegen@latest
+	@go generate ./${PROVIDER_PATH}/pkg/$(PACK)/provider.go
+
+provider:: codegen generate
+	(cd ${BUILD_DIR} && go build -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" $(PROJECT)/${PROVIDER_PATH}/cmd/$(PROVIDER))
 
 provider_debug::
 	(cd provider && go build -o $(WORKING_DIR)/bin/${PROVIDER} -gcflags="all=-N -l" -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" $(PROJECT)/${PROVIDER_PATH}/cmd/$(PROVIDER))
@@ -34,19 +46,19 @@ test_provider::
 dotnet_sdk:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 dotnet_sdk::
 	rm -rf sdk/dotnet
-	pulumi package gen-sdk $(WORKING_DIR)/bin/$(PROVIDER) --language dotnet
+	pulumi package gen-sdk --language dotnet $(SCHEMA_FILE)
 	cd ${PACKDIR}/dotnet/&& \
 		echo "${DOTNET_VERSION}" >version.txt && \
 		dotnet build /p:Version=${DOTNET_VERSION}
 
-go_sdk:: $(WORKING_DIR)/bin/$(PROVIDER)
+go_sdk::
 	rm -rf sdk/go
-	pulumi package gen-sdk $(WORKING_DIR)/bin/$(PROVIDER) --language go
+	pulumi package gen-sdk --language go $(SCHEMA_FILE)
 
 nodejs_sdk:: VERSION := $(shell pulumictl get version --language javascript)
 nodejs_sdk::
 	rm -rf sdk/nodejs
-	pulumi package gen-sdk $(WORKING_DIR)/bin/$(PROVIDER) --language nodejs
+	pulumi package gen-sdk --language nodejs $(SCHEMA_FILE)
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
 		yarn run tsc && \
@@ -57,7 +69,7 @@ nodejs_sdk::
 python_sdk:: PYPI_VERSION := $(shell pulumictl get version --language python)
 python_sdk::
 	rm -rf sdk/python
-	pulumi package gen-sdk $(WORKING_DIR)/bin/$(PROVIDER) --language python
+	pulumi package gen-sdk --language python $(SCHEMA_FILE)
 	cp README.md ${PACKDIR}/python/
 	cd ${PACKDIR}/python/ && \
 		python3 setup.py clean --all 2>/dev/null && \
@@ -92,13 +104,10 @@ up::
 	pulumi stack init dev && \
 	pulumi stack select dev && \
 	pulumi config set name dev && \
+	pulumi config set --secret apiToken ${PC_API_TOKEN} && \
+	pulumi config set pineconeEnv gcp-starter && \
 	pulumi up -y
-apply::
-	$(call pulumi_login) \
-	cd ${EXAMPLES_DIR} && \
-	pulumi stack select dev && \
-	pulumi config set name dev && \
-	pulumi up -y
+
 down::
 	$(call pulumi_login) \
 	cd ${EXAMPLES_DIR} && \
@@ -113,7 +122,9 @@ devcontainer::
 
 .PHONY: build
 
-build:: provider dotnet_sdk go_sdk nodejs_sdk python_sdk
+# TODO: fix dotnet_sdk builds
+#build:: provider dotnet_sdk go_sdk nodejs_sdk python_sdk
+build:: provider go_sdk nodejs_sdk python_sdk dotnet_sdk
 
 # Required for the codegen action that runs in pulumi/pulumi
 only_build:: build
@@ -148,3 +159,6 @@ install_go_sdk::
 install_nodejs_sdk::
 	-yarn unlink --cwd $(WORKING_DIR)/sdk/nodejs/bin
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
+
+clean::
+	rm -rf sdk/{dotnet,nodejs,go,python}

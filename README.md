@@ -1,106 +1,55 @@
-# Pulumi Native Provider Boilerplate
+# Pinecone Pulumi Provider
 
-This repository is a boilerplate showing how to create and locally test a native Pulumi provider.
+<img src="img/pinecone.svg" width="50%">
 
-## Authoring a Pulumi Native Provider
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/pinecone-io/pulumi-pinecone)
 
-This boilerplate creates a working Pulumi-owned provider named `bytebase`.
-It implements a random number generator that you can [build and test out for yourself](#test-against-the-example) and then replace the Random code with code specific to your provider.
+This Pulumi Pinecone Provider enables you to manage your [Pinecone](https://www.pinecone.io/) collections and indexes using any language of Pulumi Infrastructure as Code.
 
+## Installing
 
-### Prerequisites
+This package is available for several languages/platforms:
 
-Prerequisites for this repository are already satisfied by the [Pulumi Devcontainer](https://github.com/pulumi/devcontainer) if you are using Github Codespaces, or VSCode.
+### Node.js (JavaScript/TypeScript)
 
-If you are not using VSCode, you will need to ensure the following tools are installed and present in your `$PATH`:
+To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
-* [`pulumictl`](https://github.com/pulumi/pulumictl#installation)
-* [Go 1.21](https://golang.org/dl/) or 1.latest
-* [NodeJS](https://nodejs.org/en/) 14.x.  We recommend using [nvm](https://github.com/nvm-sh/nvm) to manage NodeJS installations.
-* [Yarn](https://yarnpkg.com/)
-* [TypeScript](https://www.typescriptlang.org/)
-* [Python](https://www.python.org/downloads/) (called as `python3`).  For recent versions of MacOS, the system-installed version is fine.
-* [.NET](https://dotnet.microsoft.com/download)
-
-
-### Build & test the boilerplate bytebase provider
-
-1. Create a new Github CodeSpaces environment using this repository.
-1. Open a terminal in the CodeSpaces environment.
-1. Run `make build install` to build and install the provider.
-1. Run `make gen_examples` to generate the example programs in `examples/` off of the source `examples/yaml` example program.
-1. Run `make up` to run the example program in `examples/yaml`.
-1. Run `make down` to tear down the example program.
-
-### Creating a new provider repository
-
-Pulumi offers this repository as a [GitHub template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for convenience.  From this repository:
-
-1. Click "Use this template".
-1. Set the following options:
-   * Owner: pulumi 
-   * Repository name: pulumi-bytebase-native (replace "bytebase" with the name of your provider)
-   * Description: Pulumi provider for bytebase
-   * Repository type: Public
-1. Clone the generated repository.
-
-From the templated repository:
-
-1. Search-replace `bytebase` with the name of your desired provider.
-
-#### Build the provider and install the plugin
-
-   ```bash
-   $ make build install
-   ```
-   
-This will:
-
-1. Create the SDK codegen binary and place it in a `./bin` folder (gitignored)
-2. Create the provider binary and place it in the `./bin` folder (gitignored)
-3. Generate the dotnet, Go, Node, and Python SDKs and place them in the `./sdk` folder
-4. Install the provider on your machine.
-
-#### Test against the example
-   
 ```bash
-$ cd examples/simple
-$ yarn link @pulumi/bytebase
-$ yarn install
-$ pulumi stack init test
-$ pulumi up
+npm install @pinecone-database/pulumi
 ```
 
-Now that you have completed all of the above steps, you have a working provider that generates a random string for you.
+or `yarn`:
 
-#### A brief repository overview
+```bash
+yarn add @pinecone-database/pinecone
+```
 
-You now have:
+### Python
 
-1. A `provider/` folder containing the building and implementation logic
-    1. `cmd/pulumi-resource-bytebase/main.go` - holds the provider's sample implementation logic.
-2. `deployment-templates` - a set of files to help you around deployment and publication
-3. `sdk` - holds the generated code libraries created by `pulumi-gen-bytebase/main.go`
-4. `examples` a folder of Pulumi programs to try locally and/or use in CI.
-5. A `Makefile` and this `README`.
+To use from Python, install using `pip`:
 
-#### Additional Details
+```bash
+pip install pinecone_pulumi
+```
 
-This repository depends on the pulumi-go-provider library. For more details on building providers, please check
-the [Pulumi Go Provider docs](https://github.com/pulumi/pulumi-go-provider).
+### Go
 
-### Build Examples
+To use from Go, use `go get` to grab the latest version of the library:
 
-Create an example program using the resources defined in your provider, and place it in the `examples/` folder.
+```bash
+go get github.com/pinecone-io/pulumi-pinecone/sdk
+```
 
-You can now repeat the steps for [build, install, and test](#test-against-the-example).
+### .NET
 
-## Configuring CI and releases
+To use from .NET, install using `dotnet add package`:
 
-1. Follow the instructions laid out in the [deployment templates](./deployment-templates/README-DEPLOYMENT.md).
+```bash
+dotnet add package PineconeDatabase.Pinecone
+```
 
-## References
+## Configuration
 
-Other resources/examples for implementing providers:
-* [Pulumi Command provider](https://github.com/pulumi/pulumi-command/blob/master/provider/pkg/provider/provider.go)
-* [Pulumi Go Provider repository](https://github.com/pulumi/pulumi-go-provider)
+The following configuration points are available for the `pinecone` provider:
+
+- `pinecone:APIKey` - This is the Pinecone API key. (environment: `PINECONE_API_KEY`)

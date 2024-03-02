@@ -14,24 +14,31 @@ def readme():
         with open('README.md', encoding='utf-8') as f:
             return f.read()
     except FileNotFoundError:
-        return "bytebase Pulumi Package - Development Version"
+        return "pinecone Pulumi Package - Development Version"
 
 
-setup(name='pulumi_bytebase',
+setup(name='pinecone_pulumi',
       python_requires='>=3.7',
       version=VERSION,
+      description="A Pulumi native provider for Pinecone",
       long_description=readme(),
       long_description_content_type='text/markdown',
+      keywords='pulumi pinecone category/utility kind/native',
+      url='https://www.pinecone.io',
+      project_urls={
+          'Repository': 'https://github.com/pinecone-io/pulumi-pinecone'
+      },
+      license='Apache-2.0',
       packages=find_packages(),
       package_data={
-          'pulumi_bytebase': [
+          'pinecone_pulumi': [
               'py.typed',
               'pulumi-plugin.json',
           ]
       },
       install_requires=[
           'parver>=0.2.1',
-          'pulumi',
+          'pulumi>=3.0.0,<4.0.0',
           'semver>=2.8.1'
       ],
       zip_safe=False)

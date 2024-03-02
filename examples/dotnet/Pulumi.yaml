@@ -1,6 +1,0 @@
-name: provider-bytebase-native
-runtime: dotnet
-plugins:
-  providers:
-    - name: bytebase
-      path: ../../bin

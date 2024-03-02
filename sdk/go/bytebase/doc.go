@@ -1,2 +1,2 @@
-// Package bytebase exports types, functions, subpackages for provisioning bytebase resources.
-package bytebase
+// A Pulumi native provider for Pinecone
+package pinecone

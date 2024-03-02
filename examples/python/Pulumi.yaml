@@ -1,6 +1,6 @@
-name: provider-bytebase-native
+name: pinecone-python
 runtime: python
 plugins:
   providers:
-    - name: bytebase
+    - name: pinecone
       path: ../../bin

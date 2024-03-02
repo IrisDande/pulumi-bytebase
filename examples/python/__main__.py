@@ -1,7 +1,15 @@
 import pulumi
-import pulumi_bytebase as bytebase
+import pulumi_pinecone as pinecone
 
-my_random_resource = bytebase.Random("myRandomResource", length=24)
+my_pinecone_index = pinecone.PineconeIndex("myPineconeIndex",
+    name="example-index",
+    metric=pinecone.IndexMetric.COSINE,
+    spec=pinecone.PineconeSpecArgs(
+        serverless=pinecone.PineconeServerlessSpecArgs(
+            cloud=pinecone.ServerlessSpecCloud.AWS,
+            region="us-west-2",
+        ),
+    ))
 pulumi.export("output", {
-    "value": my_random_resource.result,
+    "value": my_pinecone_index.host,
 })

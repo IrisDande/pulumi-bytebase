@@ -11,4 +11,7 @@ yarn.lock
 ci-scripts
 /nuget/
 provider/**/schema-embed.json
-.personal
+**/dist
+.devcontainer.json
+**/version.txt
+**/nuget

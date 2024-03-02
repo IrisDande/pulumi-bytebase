@@ -1,16 +1,22 @@
-name: provider-bytebase-native
+# File: examples/yaml/Pulumi.yaml
+name: pinecone-yaml
 runtime: yaml
 plugins:
   providers:
-    - name: bytebase
-      path: ../../bin
+  - name: pinecone
+    path: ../../bin
 
 resources:
-  myRandomResource:
-    type: bytebase:Random
+  myPineconeIndex:
+    type: pinecone:index:PineconeIndex
     properties:
-      length: 24
+      name: "example-index"
+      metric: "cosine"
+      spec:
+        serverless:
+          cloud: aws
+          region: us-west-2
 
 outputs:
   output:
-    value: ${myRandomResource.result}
+    value: ${myPineconeIndex.host}
