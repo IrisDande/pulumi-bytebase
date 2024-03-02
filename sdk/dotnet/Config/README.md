@@ -1,1 +1,1 @@
-A Pulumi native provider for Pinecone
+A Pulumi native provider for bytebase

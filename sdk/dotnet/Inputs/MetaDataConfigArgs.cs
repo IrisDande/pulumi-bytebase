@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone.Inputs
+namespace bytebaseDatabase.bytebase.Inputs
 {
 
     public sealed class MetaDataConfigArgs : global::Pulumi.ResourceArgs

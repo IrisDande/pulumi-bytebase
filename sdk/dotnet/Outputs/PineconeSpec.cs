@@ -8,26 +8,26 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone.Outputs
+namespace bytebaseDatabase.bytebase.Outputs
 {
 
     [OutputType]
-    public sealed class PineconeSpec
+    public sealed class bytebaseSpec
     {
         /// <summary>
         /// Configuration needed to deploy a pod index.
         /// </summary>
-        public readonly Outputs.PineconePodSpec? Pod;
+        public readonly Outputs.bytebasePodSpec? Pod;
         /// <summary>
         /// Configuration needed to deploy a serverless index.
         /// </summary>
-        public readonly Outputs.PineconeServerlessSpec? Serverless;
+        public readonly Outputs.bytebaseServerlessSpec? Serverless;
 
         [OutputConstructor]
-        private PineconeSpec(
-            Outputs.PineconePodSpec? pod,
+        private bytebaseSpec(
+            Outputs.bytebasePodSpec? pod,
 
-            Outputs.PineconeServerlessSpec? serverless)
+            Outputs.bytebaseServerlessSpec? serverless)
         {
             Pod = pod;
             Serverless = serverless;

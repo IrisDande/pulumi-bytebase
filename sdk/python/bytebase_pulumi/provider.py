@@ -17,7 +17,7 @@ class ProviderArgs:
                  api_key: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[str] api_key: The API token for Pinecone.
+        :param pulumi.Input[str] api_key: The API token for bytebase.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -26,7 +26,7 @@ class ProviderArgs:
     @pulumi.getter(name="APIKey")
     def api_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The API token for Pinecone.
+        The API token for bytebase.
         """
         return pulumi.get(self, "api_key")
 
@@ -43,10 +43,10 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Pinecone resource with the given unique name, props, and options.
+        Create a bytebase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_key: The API token for Pinecone.
+        :param pulumi.Input[str] api_key: The API token for bytebase.
         """
         ...
     @overload
@@ -55,7 +55,7 @@ class Provider(pulumi.ProviderResource):
                  args: Optional[ProviderArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Pinecone resource with the given unique name, props, and options.
+        Create a bytebase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -85,7 +85,7 @@ class Provider(pulumi.ProviderResource):
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["APIKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
-            'pinecone',
+            'bytebase',
             resource_name,
             __props__,
             opts)
@@ -94,7 +94,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="APIKey")
     def api_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The API token for Pinecone.
+        The API token for bytebase.
         """
         return pulumi.get(self, "api_key")
 

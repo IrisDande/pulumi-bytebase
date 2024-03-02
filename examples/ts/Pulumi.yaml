@@ -1,6 +1,6 @@
-name: pinecone-ts
+name: bytebase-ts
 runtime: nodejs
 plugins:
   providers:
-    - name: pinecone
+    - name: bytebase
       path: ../../bin

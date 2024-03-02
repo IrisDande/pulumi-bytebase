@@ -12,9 +12,9 @@ from ._enums import *
 
 __all__ = [
     'MetaDataConfigArgs',
-    'PineconePodSpecArgs',
-    'PineconeServerlessSpecArgs',
-    'PineconeSpecArgs',
+    'bytebasePodSpecArgs',
+    'bytebaseServerlessSpecArgs',
+    'bytebaseSpecArgs',
 ]
 
 @pulumi.input_type
@@ -41,7 +41,7 @@ class MetaDataConfigArgs:
 
 
 @pulumi.input_type
-class PineconePodSpecArgs:
+class bytebasePodSpecArgs:
     def __init__(__self__, *,
                  environment: pulumi.Input[str],
                  pod_type: pulumi.Input[str],
@@ -54,7 +54,7 @@ class PineconePodSpecArgs:
         :param pulumi.Input[str] environment: The environment where the index is hosted.
         :param pulumi.Input[str] pod_type: The type of pod to use. One of `s1`, `p1`, or `p2` appended with `.` and one of `x1`, `x2`, `x4`, or `x8`.
         :param pulumi.Input[int] replicas: The number of replicas. Replicas duplicate your index. They provide higher availability and throughput. Replicas can be scaled up or down as your needs change.
-        :param pulumi.Input['MetaDataConfigArgs'] meta_data_config: Configuration for the behavior of Pinecone's internal metadata index.
+        :param pulumi.Input['MetaDataConfigArgs'] meta_data_config: Configuration for the behavior of bytebase's internal metadata index.
         :param pulumi.Input[int] pods: The number of pods to be used in the index. This should be equal to `shards` x `replicas`.
         :param pulumi.Input[int] shards: The number of shards. Shards split your data across multiple pods so you can fit more data into an index.
         :param pulumi.Input[str] source_collection: The name of the collection to be used as the source for the index.
@@ -111,7 +111,7 @@ class PineconePodSpecArgs:
     @pulumi.getter(name="metaDataConfig")
     def meta_data_config(self) -> Optional[pulumi.Input['MetaDataConfigArgs']]:
         """
-        Configuration for the behavior of Pinecone's internal metadata index.
+        Configuration for the behavior of bytebase's internal metadata index.
         """
         return pulumi.get(self, "meta_data_config")
 
@@ -157,7 +157,7 @@ class PineconePodSpecArgs:
 
 
 @pulumi.input_type
-class PineconeServerlessSpecArgs:
+class bytebaseServerlessSpecArgs:
     def __init__(__self__, *,
                  cloud: pulumi.Input['ServerlessSpecCloud'],
                  region: pulumi.Input[str]):
@@ -194,13 +194,13 @@ class PineconeServerlessSpecArgs:
 
 
 @pulumi.input_type
-class PineconeSpecArgs:
+class bytebaseSpecArgs:
     def __init__(__self__, *,
-                 pod: Optional[pulumi.Input['PineconePodSpecArgs']] = None,
-                 serverless: Optional[pulumi.Input['PineconeServerlessSpecArgs']] = None):
+                 pod: Optional[pulumi.Input['bytebasePodSpecArgs']] = None,
+                 serverless: Optional[pulumi.Input['bytebaseServerlessSpecArgs']] = None):
         """
-        :param pulumi.Input['PineconePodSpecArgs'] pod: Configuration needed to deploy a pod index.
-        :param pulumi.Input['PineconeServerlessSpecArgs'] serverless: Configuration needed to deploy a serverless index.
+        :param pulumi.Input['bytebasePodSpecArgs'] pod: Configuration needed to deploy a pod index.
+        :param pulumi.Input['bytebaseServerlessSpecArgs'] serverless: Configuration needed to deploy a serverless index.
         """
         if pod is not None:
             pulumi.set(__self__, "pod", pod)
@@ -209,26 +209,26 @@ class PineconeSpecArgs:
 
     @property
     @pulumi.getter
-    def pod(self) -> Optional[pulumi.Input['PineconePodSpecArgs']]:
+    def pod(self) -> Optional[pulumi.Input['bytebasePodSpecArgs']]:
         """
         Configuration needed to deploy a pod index.
         """
         return pulumi.get(self, "pod")
 
     @pod.setter
-    def pod(self, value: Optional[pulumi.Input['PineconePodSpecArgs']]):
+    def pod(self, value: Optional[pulumi.Input['bytebasePodSpecArgs']]):
         pulumi.set(self, "pod", value)
 
     @property
     @pulumi.getter
-    def serverless(self) -> Optional[pulumi.Input['PineconeServerlessSpecArgs']]:
+    def serverless(self) -> Optional[pulumi.Input['bytebaseServerlessSpecArgs']]:
         """
         Configuration needed to deploy a serverless index.
         """
         return pulumi.get(self, "serverless")
 
     @serverless.setter
-    def serverless(self, value: Optional[pulumi.Input['PineconeServerlessSpecArgs']]):
+    def serverless(self, value: Optional[pulumi.Input['bytebaseServerlessSpecArgs']]):
         pulumi.set(self, "serverless", value)
 
 

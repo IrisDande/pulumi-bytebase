@@ -1,14 +1,14 @@
 # File: examples/yaml/Pulumi.yaml
-name: pinecone-yaml
+name: bytebase-yaml
 runtime: yaml
 plugins:
   providers:
-  - name: pinecone
+  - name: bytebase
     path: ../../bin
 
 resources:
-  myPineconeIndex:
-    type: pinecone:index:PineconeIndex
+  mybytebaseIndex:
+    type: bytebase:index:bytebaseIndex
     properties:
       name: "example-index"
       metric: "cosine"
@@ -19,4 +19,4 @@ resources:
 
 outputs:
   output:
-    value: ${myPineconeIndex.host}
+    value: ${mybytebaseIndex.host}

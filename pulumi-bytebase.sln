@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk", "sdk", "{B6AC4BA6-C73B-4068-8F4C-653518FB9794}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PineconeDatabase.Pinecone", "sdk\dotnet\PineconeDatabase.Pinecone.csproj", "{1F1B098C-55B8-4EA2-BD97-E182F7838A49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bytebaseDatabase.bytebase", "sdk\dotnet\bytebaseDatabase.bytebase.csproj", "{1F1B098C-55B8-4EA2-BD97-E182F7838A49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

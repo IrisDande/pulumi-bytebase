@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone
+namespace bytebaseDatabase.bytebase
 {
-    [PineconeResourceType("pulumi:providers:pinecone")]
+    [bytebaseResourceType("pulumi:providers:bytebase")]
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
-        /// The API token for Pinecone.
+        /// The API token for bytebase.
         /// </summary>
         [Output("APIKey")]
         public Output<string?> APIKey { get; private set; } = null!;
@@ -28,7 +28,7 @@ namespace PineconeDatabase.Pinecone
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
-            : base("pinecone", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
+            : base("bytebase", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -37,7 +37,7 @@ namespace PineconeDatabase.Pinecone
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "github://api.github.com/pinecone-io/pulumi-pinecone",
+                PluginDownloadURL = "github://api.github.com/bytebase-io/pulumi-bytebase",
                 AdditionalSecretOutputs =
                 {
                     "APIKey",
@@ -56,7 +56,7 @@ namespace PineconeDatabase.Pinecone
         private Input<string>? _APIKey;
 
         /// <summary>
-        /// The API token for Pinecone.
+        /// The API token for bytebase.
         /// </summary>
         public Input<string>? APIKey
         {

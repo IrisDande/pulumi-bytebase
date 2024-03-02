@@ -1,10 +1,10 @@
-# Pinecone Pulumi Provider
+# bytebase Pulumi Provider
 
-<img src="img/pinecone.svg" width="50%">
+<img src="img/bytebase.svg" width="50%">
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/pinecone-io/pulumi-pinecone)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/bytebase-io/pulumi-bytebase)
 
-This Pulumi Pinecone Provider enables you to manage your [Pinecone](https://www.pinecone.io/) collections and indexes using any language of Pulumi Infrastructure as Code.
+This Pulumi bytebase Provider enables you to manage your [bytebase](https://www.bytebase.io/) collections and indexes using any language of Pulumi Infrastructure as Code.
 
 ## Installing
 
@@ -15,13 +15,13 @@ This package is available for several languages/platforms:
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
 ```bash
-npm install @pinecone-database/pulumi
+npm install @bytebase-database/pulumi
 ```
 
 or `yarn`:
 
 ```bash
-yarn add @pinecone-database/pinecone
+yarn add @bytebase-database/bytebase
 ```
 
 ### Python
@@ -29,7 +29,7 @@ yarn add @pinecone-database/pinecone
 To use from Python, install using `pip`:
 
 ```bash
-pip install pinecone_pulumi
+pip install bytebase_pulumi
 ```
 
 ### Go
@@ -37,7 +37,7 @@ pip install pinecone_pulumi
 To use from Go, use `go get` to grab the latest version of the library:
 
 ```bash
-go get github.com/pinecone-io/pulumi-pinecone/sdk
+go get github.com/bytebase-io/pulumi-bytebase/sdk
 ```
 
 ### .NET
@@ -45,11 +45,11 @@ go get github.com/pinecone-io/pulumi-pinecone/sdk
 To use from .NET, install using `dotnet add package`:
 
 ```bash
-dotnet add package PineconeDatabase.Pinecone
+dotnet add package bytebaseDatabase.bytebase
 ```
 
 ## Configuration
 
-The following configuration points are available for the `pinecone` provider:
+The following configuration points are available for the `bytebase` provider:
 
-- `pinecone:APIKey` - This is the Pinecone API key. (environment: `PINECONE_API_KEY`)
+- `bytebase:APIKey` - This is the bytebase API key. (environment: `bytebase_API_KEY`)

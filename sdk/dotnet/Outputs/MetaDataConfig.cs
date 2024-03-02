@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone.Outputs
+namespace bytebaseDatabase.bytebase.Outputs
 {
 
     [OutputType]

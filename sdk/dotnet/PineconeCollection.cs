@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone
+namespace bytebaseDatabase.bytebase
 {
-    [PineconeResourceType("pinecone:index:PineconeCollection")]
-    public partial class PineconeCollection : global::Pulumi.CustomResource
+    [bytebaseResourceType("bytebase:index:bytebaseCollection")]
+    public partial class bytebaseCollection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The dimension of the vectors stored in each record held in the collection.
@@ -51,19 +51,19 @@ namespace PineconeDatabase.Pinecone
 
 
         /// <summary>
-        /// Create a PineconeCollection resource with the given unique name, arguments, and options.
+        /// Create a bytebaseCollection resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PineconeCollection(string name, PineconeCollectionArgs args, CustomResourceOptions? options = null)
-            : base("pinecone:index:PineconeCollection", name, args ?? new PineconeCollectionArgs(), MakeResourceOptions(options, ""))
+        public bytebaseCollection(string name, bytebaseCollectionArgs args, CustomResourceOptions? options = null)
+            : base("bytebase:index:bytebaseCollection", name, args ?? new bytebaseCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private PineconeCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("pinecone:index:PineconeCollection", name, null, MakeResourceOptions(options, id))
+        private bytebaseCollection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("bytebase:index:bytebaseCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,7 +72,7 @@ namespace PineconeDatabase.Pinecone
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "github://api.github.com/pinecone-io/pulumi-pinecone",
+                PluginDownloadURL = "github://api.github.com/bytebase-io/pulumi-bytebase",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -80,20 +80,20 @@ namespace PineconeDatabase.Pinecone
             return merged;
         }
         /// <summary>
-        /// Get an existing PineconeCollection resource's state with the given name, ID, and optional extra
+        /// Get an existing bytebaseCollection resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static PineconeCollection Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static bytebaseCollection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new PineconeCollection(name, id, options);
+            return new bytebaseCollection(name, id, options);
         }
     }
 
-    public sealed class PineconeCollectionArgs : global::Pulumi.ResourceArgs
+    public sealed class bytebaseCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the collection to be created.
@@ -107,9 +107,9 @@ namespace PineconeDatabase.Pinecone
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
-        public PineconeCollectionArgs()
+        public bytebaseCollectionArgs()
         {
         }
-        public static new PineconeCollectionArgs Empty => new PineconeCollectionArgs();
+        public static new bytebaseCollectionArgs Empty => new bytebaseCollectionArgs();
     }
 }

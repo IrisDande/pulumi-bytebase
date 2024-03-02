@@ -1,6 +1,6 @@
-name: pinecone-python
+name: bytebase-python
 runtime: python
 plugins:
   providers:
-    - name: pinecone
+    - name: bytebase
       path: ../../bin

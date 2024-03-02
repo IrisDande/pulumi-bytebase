@@ -1,16 +1,16 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as pinecone from "@pinecone-database/pulumi";
+import * as bytebase from "@bytebase-database/pulumi";
 
-const myPineconeIndex = new pinecone.PineconeIndex("myPineconeIndex", {
+const mybytebaseIndex = new bytebase.bytebaseIndex("mybytebaseIndex", {
     name: "example-index",
-    metric: pinecone.IndexMetric.Cosine,
+    metric: bytebase.IndexMetric.Cosine,
     spec: {
         serverless: {
-            cloud: pinecone.ServerlessSpecCloud.Aws,
+            cloud: bytebase.ServerlessSpecCloud.Aws,
             region: "us-west-2",
         },
     },
 });
 export const output = {
-    value: myPineconeIndex.host,
+    value: mybytebaseIndex.host,
 };

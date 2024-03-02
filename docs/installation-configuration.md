@@ -1,30 +1,30 @@
 ---
-title: Pinecone Setup
-meta_desc: Information on how to install the Pinecone Provider for Pulumi.
+title: bytebase Setup
+meta_desc: Information on how to install the bytebase Provider for Pulumi.
 layout: package
 ---
 
 ## Installation
 
-The Pulumi Pinecone provider is available as a package in all Pulumi languages:
+The Pulumi bytebase provider is available as a package in all Pulumi languages:
 
-* JavaScript/TypeScript: [`@pinecone-database/pulumi`](https://www.npmjs.com/package/@pinecone-database/pulumi)
-* Python: [`pinecone_pulumi`](https://pypi.org/project/pinecone_pulumi/)
-* Go: [`github.com/pinecone-io/pulumi-pinecone/sdk/go/port`](https://github.com/pinecone-io/pulumi-pinecone)
-* * .NET: [`PineconeDatabase.Pinecone`](https://www.nuget.org/packages/PineconeDatabase.Pinecone)
+* JavaScript/TypeScript: [`@bytebase-database/pulumi`](https://www.npmjs.com/package/@bytebase-database/pulumi)
+* Python: [`bytebase_pulumi`](https://pypi.org/project/bytebase_pulumi/)
+* Go: [`github.com/bytebase-io/pulumi-bytebase/sdk/go/port`](https://github.com/bytebase-io/pulumi-bytebase)
+* * .NET: [`bytebaseDatabase.bytebase`](https://www.nuget.org/packages/bytebaseDatabase.bytebase)
 
 ### Node.js (JavaScript/TypeScript)
 
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
 ```bash
-npm install @pinecone-database/pulumi
+npm install @bytebase-database/pulumi
 ```
 
 or `yarn`:
 
 ```bash
-yarn add @pinecone-database/pinecone
+yarn add @bytebase-database/bytebase
 ```
 
 ### Python
@@ -32,7 +32,7 @@ yarn add @pinecone-database/pinecone
 To use from Python, install using `pip`:
 
 ```bash
-pip install pinecone_pulumi
+pip install bytebase_pulumi
 ```
 
 ### Go
@@ -40,7 +40,7 @@ pip install pinecone_pulumi
 To use from Go, use `go get` to grab the latest version of the library:
 
 ```bash
-go get github.com/pinecone-io/pulumi-pinecone/sdk
+go get github.com/bytebase-io/pulumi-bytebase/sdk
 ```
 
 ### .NET
@@ -48,11 +48,11 @@ go get github.com/pinecone-io/pulumi-pinecone/sdk
 To use from .NET, install using `dotnet add package`:
 
 ```bash
-dotnet add package PineconeDatabase.Pinecone
+dotnet add package bytebaseDatabase.bytebase
 ```
 
 ## Configuration
 
-The following configuration points are available for the `pinecone` provider:
+The following configuration points are available for the `bytebase` provider:
 
-- `pinecone:APIKey` - This is the Pinecone API key. (environment: `PINECONE_API_KEY`)
+- `bytebase:APIKey` - This is the bytebase API key. (environment: `bytebase_API_KEY`)

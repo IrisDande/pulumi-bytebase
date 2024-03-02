@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone.Inputs
+namespace bytebaseDatabase.bytebase.Inputs
 {
 
-    public sealed class PineconeServerlessSpecArgs : global::Pulumi.ResourceArgs
+    public sealed class bytebaseServerlessSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The public cloud where you would like your index hosted.
         /// </summary>
         [Input("cloud", required: true)]
-        public Input<PineconeDatabase.Pinecone.ServerlessSpecCloud> Cloud { get; set; } = null!;
+        public Input<bytebaseDatabase.bytebase.ServerlessSpecCloud> Cloud { get; set; } = null!;
 
         /// <summary>
         /// The region where you would like your index to be created. Different cloud providers have different regions available.
@@ -25,9 +25,9 @@ namespace PineconeDatabase.Pinecone.Inputs
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
-        public PineconeServerlessSpecArgs()
+        public bytebaseServerlessSpecArgs()
         {
         }
-        public static new PineconeServerlessSpecArgs Empty => new PineconeServerlessSpecArgs();
+        public static new bytebaseServerlessSpecArgs Empty => new bytebaseServerlessSpecArgs();
     }
 }

@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace PineconeDatabase.Pinecone
+namespace bytebaseDatabase.bytebase
 {
     public static class Config
     {
@@ -30,11 +30,11 @@ namespace PineconeDatabase.Pinecone
             }
         }
 
-        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("pinecone");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("bytebase");
 
         private static readonly __Value<string?> _APIKey = new __Value<string?>(() => __config.Get("APIKey"));
         /// <summary>
-        /// The API token for Pinecone.
+        /// The API token for bytebase.
         /// </summary>
         public static string? APIKey
         {

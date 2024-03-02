@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone
+namespace bytebaseDatabase.bytebase
 {
     [EnumType]
     public readonly struct IndexMetric : IEquatable<IndexMetric>

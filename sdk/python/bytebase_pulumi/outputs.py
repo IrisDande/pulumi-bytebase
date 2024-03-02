@@ -13,9 +13,9 @@ from ._enums import *
 
 __all__ = [
     'MetaDataConfig',
-    'PineconePodSpec',
-    'PineconeServerlessSpec',
-    'PineconeSpec',
+    'bytebasePodSpec',
+    'bytebaseServerlessSpec',
+    'bytebaseSpec',
 ]
 
 @pulumi.output_type
@@ -38,7 +38,7 @@ class MetaDataConfig(dict):
 
 
 @pulumi.output_type
-class PineconePodSpec(dict):
+class bytebasePodSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -50,14 +50,14 @@ class PineconePodSpec(dict):
             suggest = "source_collection"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PineconePodSpec. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in bytebasePodSpec. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PineconePodSpec.__key_warning(key)
+        bytebasePodSpec.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PineconePodSpec.__key_warning(key)
+        bytebasePodSpec.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -72,7 +72,7 @@ class PineconePodSpec(dict):
         :param str environment: The environment where the index is hosted.
         :param str pod_type: The type of pod to use. One of `s1`, `p1`, or `p2` appended with `.` and one of `x1`, `x2`, `x4`, or `x8`.
         :param int replicas: The number of replicas. Replicas duplicate your index. They provide higher availability and throughput. Replicas can be scaled up or down as your needs change.
-        :param 'MetaDataConfig' meta_data_config: Configuration for the behavior of Pinecone's internal metadata index.
+        :param 'MetaDataConfig' meta_data_config: Configuration for the behavior of bytebase's internal metadata index.
         :param int pods: The number of pods to be used in the index. This should be equal to `shards` x `replicas`.
         :param int shards: The number of shards. Shards split your data across multiple pods so you can fit more data into an index.
         :param str source_collection: The name of the collection to be used as the source for the index.
@@ -117,7 +117,7 @@ class PineconePodSpec(dict):
     @pulumi.getter(name="metaDataConfig")
     def meta_data_config(self) -> Optional['outputs.MetaDataConfig']:
         """
-        Configuration for the behavior of Pinecone's internal metadata index.
+        Configuration for the behavior of bytebase's internal metadata index.
         """
         return pulumi.get(self, "meta_data_config")
 
@@ -147,7 +147,7 @@ class PineconePodSpec(dict):
 
 
 @pulumi.output_type
-class PineconeServerlessSpec(dict):
+class bytebaseServerlessSpec(dict):
     def __init__(__self__, *,
                  cloud: 'ServerlessSpecCloud',
                  region: str):
@@ -176,13 +176,13 @@ class PineconeServerlessSpec(dict):
 
 
 @pulumi.output_type
-class PineconeSpec(dict):
+class bytebaseSpec(dict):
     def __init__(__self__, *,
-                 pod: Optional['outputs.PineconePodSpec'] = None,
-                 serverless: Optional['outputs.PineconeServerlessSpec'] = None):
+                 pod: Optional['outputs.bytebasePodSpec'] = None,
+                 serverless: Optional['outputs.bytebaseServerlessSpec'] = None):
         """
-        :param 'PineconePodSpec' pod: Configuration needed to deploy a pod index.
-        :param 'PineconeServerlessSpec' serverless: Configuration needed to deploy a serverless index.
+        :param 'bytebasePodSpec' pod: Configuration needed to deploy a pod index.
+        :param 'bytebaseServerlessSpec' serverless: Configuration needed to deploy a serverless index.
         """
         if pod is not None:
             pulumi.set(__self__, "pod", pod)
@@ -191,7 +191,7 @@ class PineconeSpec(dict):
 
     @property
     @pulumi.getter
-    def pod(self) -> Optional['outputs.PineconePodSpec']:
+    def pod(self) -> Optional['outputs.bytebasePodSpec']:
         """
         Configuration needed to deploy a pod index.
         """
@@ -199,7 +199,7 @@ class PineconeSpec(dict):
 
     @property
     @pulumi.getter
-    def serverless(self) -> Optional['outputs.PineconeServerlessSpec']:
+    def serverless(self) -> Optional['outputs.bytebaseServerlessSpec']:
         """
         Configuration needed to deploy a serverless index.
         """

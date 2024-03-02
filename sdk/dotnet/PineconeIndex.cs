@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone
+namespace bytebaseDatabase.bytebase
 {
-    [PineconeResourceType("pinecone:index:PineconeIndex")]
-    public partial class PineconeIndex : global::Pulumi.CustomResource
+    [bytebaseResourceType("bytebase:index:bytebaseIndex")]
+    public partial class bytebaseIndex : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The dimensions of the vectors in the index. Defaults to 1536.
@@ -29,10 +29,10 @@ namespace PineconeDatabase.Pinecone
         /// The metric used to compute the distance between vectors.
         /// </summary>
         [Output("metric")]
-        public Output<PineconeDatabase.Pinecone.IndexMetric> Metric { get; private set; } = null!;
+        public Output<bytebaseDatabase.bytebase.IndexMetric> Metric { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Pinecone index.
+        /// The name of the bytebase index.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -41,23 +41,23 @@ namespace PineconeDatabase.Pinecone
         /// Describe how the index should be deployed.
         /// </summary>
         [Output("spec")]
-        public Output<Outputs.PineconeSpec> Spec { get; private set; } = null!;
+        public Output<Outputs.bytebaseSpec> Spec { get; private set; } = null!;
 
 
         /// <summary>
-        /// Create a PineconeIndex resource with the given unique name, arguments, and options.
+        /// Create a bytebaseIndex resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PineconeIndex(string name, PineconeIndexArgs args, CustomResourceOptions? options = null)
-            : base("pinecone:index:PineconeIndex", name, args ?? new PineconeIndexArgs(), MakeResourceOptions(options, ""))
+        public bytebaseIndex(string name, bytebaseIndexArgs args, CustomResourceOptions? options = null)
+            : base("bytebase:index:bytebaseIndex", name, args ?? new bytebaseIndexArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private PineconeIndex(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("pinecone:index:PineconeIndex", name, null, MakeResourceOptions(options, id))
+        private bytebaseIndex(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("bytebase:index:bytebaseIndex", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,7 +66,7 @@ namespace PineconeDatabase.Pinecone
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "github://api.github.com/pinecone-io/pulumi-pinecone",
+                PluginDownloadURL = "github://api.github.com/bytebase-io/pulumi-bytebase",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -74,20 +74,20 @@ namespace PineconeDatabase.Pinecone
             return merged;
         }
         /// <summary>
-        /// Get an existing PineconeIndex resource's state with the given name, ID, and optional extra
+        /// Get an existing bytebaseIndex resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static PineconeIndex Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static bytebaseIndex Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new PineconeIndex(name, id, options);
+            return new bytebaseIndex(name, id, options);
         }
     }
 
-    public sealed class PineconeIndexArgs : global::Pulumi.ResourceArgs
+    public sealed class bytebaseIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The dimensions of the vectors in the index. Defaults to 1536.
@@ -99,10 +99,10 @@ namespace PineconeDatabase.Pinecone
         /// The metric used to compute the distance between vectors.
         /// </summary>
         [Input("metric", required: true)]
-        public Input<PineconeDatabase.Pinecone.IndexMetric> Metric { get; set; } = null!;
+        public Input<bytebaseDatabase.bytebase.IndexMetric> Metric { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Pinecone index.
+        /// The name of the bytebase index.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -111,11 +111,11 @@ namespace PineconeDatabase.Pinecone
         /// Describe how the index should be deployed.
         /// </summary>
         [Input("spec", required: true)]
-        public Input<Inputs.PineconeSpecArgs> Spec { get; set; } = null!;
+        public Input<Inputs.bytebaseSpecArgs> Spec { get; set; } = null!;
 
-        public PineconeIndexArgs()
+        public bytebaseIndexArgs()
         {
         }
-        public static new PineconeIndexArgs Empty => new PineconeIndexArgs();
+        public static new bytebaseIndexArgs Empty => new bytebaseIndexArgs();
     }
 }

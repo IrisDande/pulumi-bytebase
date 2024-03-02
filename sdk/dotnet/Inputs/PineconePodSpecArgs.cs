@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone.Inputs
+namespace bytebaseDatabase.bytebase.Inputs
 {
 
-    public sealed class PineconePodSpecArgs : global::Pulumi.ResourceArgs
+    public sealed class bytebasePodSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The environment where the index is hosted.
@@ -20,7 +20,7 @@ namespace PineconeDatabase.Pinecone.Inputs
         public Input<string> Environment { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for the behavior of Pinecone's internal metadata index.
+        /// Configuration for the behavior of bytebase's internal metadata index.
         /// </summary>
         [Input("metaDataConfig")]
         public Input<Inputs.MetaDataConfigArgs>? MetaDataConfig { get; set; }
@@ -55,9 +55,9 @@ namespace PineconeDatabase.Pinecone.Inputs
         [Input("sourceCollection")]
         public Input<string>? SourceCollection { get; set; }
 
-        public PineconePodSpecArgs()
+        public bytebasePodSpecArgs()
         {
         }
-        public static new PineconePodSpecArgs Empty => new PineconePodSpecArgs();
+        public static new bytebasePodSpecArgs Empty => new bytebasePodSpecArgs();
     }
 }

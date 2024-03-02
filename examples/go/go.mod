@@ -1,4 +1,4 @@
-module pinecone
+module bytebase
 
 go 1.21
 
@@ -6,7 +6,7 @@ toolchain go1.21.5
 
 require github.com/pulumi/pulumi/sdk/v3 v3.102.0
 
-require github.com/pinecone-io/pulumi-pinecone/sdk v0.0.0
+require github.com/bytebase-io/pulumi-bytebase/sdk v0.0.0
 
 require (
 	dario.cat/mergo v1.0.0 // indirect
@@ -93,4 +93,4 @@ require (
 	lukechampine.com/frand v1.4.2 // indirect
 )
 
-replace github.com/pinecone-io/pulumi-pinecone/sdk => ../../sdk
+replace github.com/bytebase-io/pulumi-bytebase/sdk => ../../sdk

@@ -6,7 +6,7 @@ before:
   hooks:
     - make provider
 builds:
-  - binary: pulumi-resource-pinecone
+  - binary: pulumi-resource-bytebase
     dir: provider
     env:
       - CGO_ENABLED=0
@@ -19,8 +19,8 @@ builds:
       - linux
     ldflags:
       # The line below MUST align with the module in current provider/go.mod
-      - -X github.com/pinecone-io/pulumi-pinecone/provider/pkg/version.Version={{.Tag }}
-    main: ./cmd/pulumi-resource-pinecone/
+      - -X github.com/bytebase-io/pulumi-bytebase/provider/pkg/version.Version={{.Tag }}
+    main: ./cmd/pulumi-resource-bytebase/
 
 signs:
   - cmd: cosign

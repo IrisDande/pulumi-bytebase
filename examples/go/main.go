@@ -1,19 +1,19 @@
 package main
 
 import (
-	"github.com/pinecone-io/pulumi-pinecone/sdk/go/pinecone"
+	"github.com/bytebase-io/pulumi-bytebase/sdk/go/bytebase"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 
-		myPineconeIndex, err := pinecone.NewPineconeIndex(ctx, "myPineconeIndex", &pinecone.PineconeIndexArgs{
+		mybytebaseIndex, err := bytebase.NewbytebaseIndex(ctx, "mybytebaseIndex", &bytebase.bytebaseIndexArgs{
 			Name:   pulumi.String("example-index2"),
-			Metric: pinecone.IndexMetricCosine,
-			Spec: &pinecone.PineconeSpecArgs{
-				Serverless: &pinecone.PineconeServerlessSpecArgs{
-					Cloud:  pinecone.ServerlessSpecCloudAws,
+			Metric: bytebase.IndexMetricCosine,
+			Spec: &bytebase.bytebaseSpecArgs{
+				Serverless: &bytebase.bytebaseServerlessSpecArgs{
+					Cloud:  bytebase.ServerlessSpecCloudAws,
 					Region: pulumi.String("us-west-2"),
 				},
 			},
@@ -21,17 +21,17 @@ func main() {
 		if err != nil {
 			return err
 		}
-		ctx.Export("myPineconeIndex", myPineconeIndex.Name)
-		ctx.Export("myPineconeIndexHost", myPineconeIndex.Host)
+		ctx.Export("mybytebaseIndex", mybytebaseIndex.Name)
+		ctx.Export("mybytebaseIndexHost", mybytebaseIndex.Host)
 
-		myPineconeIndex2, err := pinecone.NewPineconeIndex(ctx, "myPineconeIndex2", &pinecone.PineconeIndexArgs{
+		mybytebaseIndex2, err := bytebase.NewbytebaseIndex(ctx, "mybytebaseIndex2", &bytebase.bytebaseIndexArgs{
 			Name:      pulumi.String("example-index3"),
 			Dimension: pulumi.Int(1536),
-			Metric:    pinecone.IndexMetricCosine,
-			Spec: &pinecone.PineconeSpecArgs{
-				Pod: &pinecone.PineconePodSpecArgs{
+			Metric:    bytebase.IndexMetricCosine,
+			Spec: &bytebase.bytebaseSpecArgs{
+				Pod: &bytebase.bytebasePodSpecArgs{
 					Environment: pulumi.String("gcp-starter"),
-					MetaDataConfig: &pinecone.MetaDataConfigArgs{
+					MetaDataConfig: &bytebase.MetaDataConfigArgs{
 						Indexed: pulumi.StringArray{
 							pulumi.String("genre"),
 							pulumi.String("title"),
@@ -50,16 +50,16 @@ func main() {
 			return err
 		}
 
-		ctx.Export("myPineconeIndex2", myPineconeIndex2.Host)
+		ctx.Export("mybytebaseIndex2", mybytebaseIndex2.Host)
 
-		myPineconeIndex3, err := pinecone.NewPineconeIndex(ctx, "myPineconeIndex3", &pinecone.PineconeIndexArgs{
+		mybytebaseIndex3, err := bytebase.NewbytebaseIndex(ctx, "mybytebaseIndex3", &bytebase.bytebaseIndexArgs{
 			Name:      pulumi.String("example-index4"),
 			Dimension: pulumi.Int(1536),
-			Metric:    pinecone.IndexMetricCosine,
-			Spec: &pinecone.PineconeSpecArgs{
-				Pod: &pinecone.PineconePodSpecArgs{
+			Metric:    bytebase.IndexMetricCosine,
+			Spec: &bytebase.bytebaseSpecArgs{
+				Pod: &bytebase.bytebasePodSpecArgs{
 					Environment: pulumi.String("us-east-1-aws"),
-					MetaDataConfig: &pinecone.MetaDataConfigArgs{
+					MetaDataConfig: &bytebase.MetaDataConfigArgs{
 						Indexed: pulumi.StringArray{
 							pulumi.String("genre"),
 							pulumi.String("title"),
@@ -78,7 +78,7 @@ func main() {
 			return err
 		}
 
-		ctx.Export("myPineconeIndex3", myPineconeIndex3.Host)
+		ctx.Export("mybytebaseIndex3", mybytebaseIndex3.Host)
 
 		return nil
 	})

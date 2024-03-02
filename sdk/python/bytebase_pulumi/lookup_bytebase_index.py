@@ -12,14 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'LookupPineconeIndexResult',
-    'AwaitableLookupPineconeIndexResult',
-    'lookup_pinecone_index',
-    'lookup_pinecone_index_output',
+    'LookupbytebaseIndexResult',
+    'AwaitableLookupbytebaseIndexResult',
+    'lookup_bytebase_index',
+    'lookup_bytebase_index_output',
 ]
 
 @pulumi.output_type
-class LookupPineconeIndexResult:
+class LookupbytebaseIndexResult:
     def __init__(__self__, dimension=None, host=None, metric=None, name=None, spec=None, status=None):
         if dimension and not isinstance(dimension, int):
             raise TypeError("Expected argument 'dimension' to be a int")
@@ -68,13 +68,13 @@ class LookupPineconeIndexResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Pinecone index.
+        The name of the bytebase index.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def spec(self) -> 'outputs.PineconeSpec':
+    def spec(self) -> 'outputs.bytebaseSpec':
         """
         Describe how the index should be deployed.
         """
@@ -89,12 +89,12 @@ class LookupPineconeIndexResult:
         return pulumi.get(self, "status")
 
 
-class AwaitableLookupPineconeIndexResult(LookupPineconeIndexResult):
+class AwaitableLookupbytebaseIndexResult(LookupbytebaseIndexResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return LookupPineconeIndexResult(
+        return LookupbytebaseIndexResult(
             dimension=self.dimension,
             host=self.host,
             metric=self.metric,
@@ -103,19 +103,19 @@ class AwaitableLookupPineconeIndexResult(LookupPineconeIndexResult):
             status=self.status)
 
 
-def lookup_pinecone_index(name: Optional[str] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableLookupPineconeIndexResult:
+def lookup_bytebase_index(name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableLookupbytebaseIndexResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the Pinecone index.
+    :param str name: The name of the bytebase index.
     """
     __args__ = dict()
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('pinecone:index:lookupPineconeIndex', __args__, opts=opts, typ=LookupPineconeIndexResult).value
+    __ret__ = pulumi.runtime.invoke('bytebase:index:lookupbytebaseIndex', __args__, opts=opts, typ=LookupbytebaseIndexResult).value
 
-    return AwaitableLookupPineconeIndexResult(
+    return AwaitableLookupbytebaseIndexResult(
         dimension=pulumi.get(__ret__, 'dimension'),
         host=pulumi.get(__ret__, 'host'),
         metric=pulumi.get(__ret__, 'metric'),
@@ -124,12 +124,12 @@ def lookup_pinecone_index(name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'))
 
 
-@_utilities.lift_output_func(lookup_pinecone_index)
-def lookup_pinecone_index_output(name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[LookupPineconeIndexResult]:
+@_utilities.lift_output_func(lookup_bytebase_index)
+def lookup_bytebase_index_output(name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[LookupbytebaseIndexResult]:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the Pinecone index.
+    :param str name: The name of the bytebase index.
     """
     ...

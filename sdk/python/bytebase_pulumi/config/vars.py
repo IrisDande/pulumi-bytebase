@@ -11,14 +11,14 @@ from .. import _utilities
 
 import types
 
-__config__ = pulumi.Config('pinecone')
+__config__ = pulumi.Config('bytebase')
 
 
 class _ExportableConfig(types.ModuleType):
     @property
     def api_key(self) -> Optional[str]:
         """
-        The API token for Pinecone.
+        The API token for bytebase.
         """
         return __config__.get('APIKey')
 

@@ -1,8 +1,8 @@
-PROJECT_NAME := Pulumi Pinecone Resource Provider
+PROJECT_NAME := Pulumi bytebase Resource Provider
 
-PACK             := pinecone
+PACK             := bytebase
 PACKDIR          := sdk
-PROJECT          := github.com/pinecone-io/pulumi-pinecone
+PROJECT          := github.com/bytebase-io/pulumi-bytebase
 PROVIDER        := pulumi-resource-${PACK}
 VERSION         ?= $(shell pulumictl get version)
 PROVIDER_PATH   := provider
@@ -11,11 +11,11 @@ VERSION_PATH    := ${PROVIDER_PATH}.Version
 GOPATH			:= $(shell go env GOPATH)
 
 CODEGEN         := pulumi-gen-${PACK}
-SCHEMA_FILE     := provider/cmd/pulumi-resource-pinecone/schema.json
+SCHEMA_FILE     := provider/cmd/pulumi-resource-bytebase/schema.json
 WORKING_DIR     := $(shell pwd)
 EXAMPLES_DIR    := ${WORKING_DIR}/examples/yaml
 TESTPARALLELISM := 4
-BUILD_DIR		:= ${WORKING_DIR}/provider/cmd/pulumi-resource-pinecone
+BUILD_DIR		:= ${WORKING_DIR}/provider/cmd/pulumi-resource-bytebase
 
 export PATH := $(HOME)/go/bin:$(PATH)
 
@@ -105,7 +105,7 @@ up::
 	pulumi stack select dev && \
 	pulumi config set name dev && \
 	pulumi config set --secret apiToken ${PC_API_TOKEN} && \
-	pulumi config set pineconeEnv gcp-starter && \
+	pulumi config set bytebaseEnv gcp-starter && \
 	pulumi up -y
 
 down::

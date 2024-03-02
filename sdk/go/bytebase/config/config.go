@@ -4,14 +4,14 @@
 package config
 
 import (
-	"github.com/pinecone-io/pulumi-pinecone/sdk/go/pinecone/internal"
+	"github.com/bytebase-io/pulumi-bytebase/sdk/go/bytebase/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
 var _ = internal.GetEnvOrDefault
 
-// The API token for Pinecone.
+// The API token for bytebase.
 func GetAPIKey(ctx *pulumi.Context) string {
-	return config.Get(ctx, "pinecone:apikey")
+	return config.Get(ctx, "bytebase:apikey")
 }

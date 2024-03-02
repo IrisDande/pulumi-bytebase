@@ -8,49 +8,49 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone
+namespace bytebaseDatabase.bytebase
 {
-    public static class LookupPineconeIndex
+    public static class LookupbytebaseIndex
     {
-        public static Task<LookupPineconeIndexResult> InvokeAsync(LookupPineconeIndexArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<LookupPineconeIndexResult>("pinecone:index:lookupPineconeIndex", args ?? new LookupPineconeIndexArgs(), options.WithDefaults());
+        public static Task<LookupbytebaseIndexResult> InvokeAsync(LookupbytebaseIndexArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<LookupbytebaseIndexResult>("bytebase:index:lookupbytebaseIndex", args ?? new LookupbytebaseIndexArgs(), options.WithDefaults());
 
-        public static Output<LookupPineconeIndexResult> Invoke(LookupPineconeIndexInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<LookupPineconeIndexResult>("pinecone:index:lookupPineconeIndex", args ?? new LookupPineconeIndexInvokeArgs(), options.WithDefaults());
+        public static Output<LookupbytebaseIndexResult> Invoke(LookupbytebaseIndexInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<LookupbytebaseIndexResult>("bytebase:index:lookupbytebaseIndex", args ?? new LookupbytebaseIndexInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class LookupPineconeIndexArgs : global::Pulumi.InvokeArgs
+    public sealed class LookupbytebaseIndexArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Pinecone index.
+        /// The name of the bytebase index.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        public LookupPineconeIndexArgs()
+        public LookupbytebaseIndexArgs()
         {
         }
-        public static new LookupPineconeIndexArgs Empty => new LookupPineconeIndexArgs();
+        public static new LookupbytebaseIndexArgs Empty => new LookupbytebaseIndexArgs();
     }
 
-    public sealed class LookupPineconeIndexInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class LookupbytebaseIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Pinecone index.
+        /// The name of the bytebase index.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        public LookupPineconeIndexInvokeArgs()
+        public LookupbytebaseIndexInvokeArgs()
         {
         }
-        public static new LookupPineconeIndexInvokeArgs Empty => new LookupPineconeIndexInvokeArgs();
+        public static new LookupbytebaseIndexInvokeArgs Empty => new LookupbytebaseIndexInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class LookupPineconeIndexResult
+    public sealed class LookupbytebaseIndexResult
     {
         /// <summary>
         /// The dimensions of the vectors in the index. Defaults to 1536.
@@ -63,31 +63,31 @@ namespace PineconeDatabase.Pinecone
         /// <summary>
         /// The metric used to compute the distance between vectors.
         /// </summary>
-        public readonly PineconeDatabase.Pinecone.IndexMetric Metric;
+        public readonly bytebaseDatabase.bytebase.IndexMetric Metric;
         /// <summary>
-        /// The name of the Pinecone index.
+        /// The name of the bytebase index.
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// Describe how the index should be deployed.
         /// </summary>
-        public readonly Outputs.PineconeSpec Spec;
+        public readonly Outputs.bytebaseSpec Spec;
         /// <summary>
         /// The status of the index.
         /// </summary>
         public readonly bool Status;
 
         [OutputConstructor]
-        private LookupPineconeIndexResult(
+        private LookupbytebaseIndexResult(
             int? dimension,
 
             string host,
 
-            PineconeDatabase.Pinecone.IndexMetric metric,
+            bytebaseDatabase.bytebase.IndexMetric metric,
 
             string name,
 
-            Outputs.PineconeSpec spec,
+            Outputs.bytebaseSpec spec,
 
             bool status)
         {

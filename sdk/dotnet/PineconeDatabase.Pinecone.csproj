@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>pinecone-io</Authors>
-    <Company>pinecone-io</Company>
-    <Description>A Pulumi native provider for Pinecone</Description>
+    <Authors>bytebase-io</Authors>
+    <Company>bytebase-io</Company>
+    <Description>A Pulumi native provider for bytebase</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://www.pinecone.io</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/pinecone-io/pulumi-pinecone</RepositoryUrl>
+    <PackageProjectUrl>https://www.bytebase.io</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bytebase-io/pulumi-bytebase</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
 
     <TargetFramework>net6.0</TargetFramework>

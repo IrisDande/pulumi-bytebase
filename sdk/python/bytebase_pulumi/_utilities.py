@@ -288,4 +288,4 @@ async def _await_output(o: pulumi.Output[typing.Any]) -> typing.Tuple[object, bo
     )
 
 def get_plugin_download_url():
-	return "github://api.github.com/pinecone-io/pulumi-pinecone"
+	return "github://api.github.com/bytebase-io/pulumi-bytebase"

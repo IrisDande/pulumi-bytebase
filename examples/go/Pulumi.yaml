@@ -1,6 +1,6 @@
-name: pinecone-go
+name: bytebase-go
 runtime: go
 plugins:
   providers:
-    - name: pinecone
+    - name: bytebase
       path: ../../bin

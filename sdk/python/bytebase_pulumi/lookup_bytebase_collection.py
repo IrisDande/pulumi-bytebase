@@ -10,16 +10,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
-    'LookupPineconeCollectionResult',
-    'AwaitableLookupPineconeCollectionResult',
-    'lookup_pinecone_collection',
-    'lookup_pinecone_collection_output',
+    'LookupbytebaseCollectionResult',
+    'AwaitableLookupbytebaseCollectionResult',
+    'lookup_bytebase_collection',
+    'lookup_bytebase_collection_output',
 ]
 
 @pulumi.output_type
-class LookupPineconeCollectionResult:
+class LookupbytebaseCollectionResult:
     """
-    The result of a get operation on a Pinecone collection.
+    The result of a get operation on a bytebase collection.
     """
     def __init__(__self__, dimension=None, environment=None, name=None, size=None, source=None, vector_count=None):
         if dimension and not isinstance(dimension, int):
@@ -90,12 +90,12 @@ class LookupPineconeCollectionResult:
         return pulumi.get(self, "vector_count")
 
 
-class AwaitableLookupPineconeCollectionResult(LookupPineconeCollectionResult):
+class AwaitableLookupbytebaseCollectionResult(LookupbytebaseCollectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return LookupPineconeCollectionResult(
+        return LookupbytebaseCollectionResult(
             dimension=self.dimension,
             environment=self.environment,
             name=self.name,
@@ -104,20 +104,20 @@ class AwaitableLookupPineconeCollectionResult(LookupPineconeCollectionResult):
             vector_count=self.vector_count)
 
 
-def lookup_pinecone_collection(name: Optional[str] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableLookupPineconeCollectionResult:
+def lookup_bytebase_collection(name: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableLookupbytebaseCollectionResult:
     """
-    The result of a get operation on a Pinecone collection.
+    The result of a get operation on a bytebase collection.
 
 
-    :param str name: The name of the Pinecone collection.
+    :param str name: The name of the bytebase collection.
     """
     __args__ = dict()
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('pinecone:index:lookupPineconeCollection', __args__, opts=opts, typ=LookupPineconeCollectionResult).value
+    __ret__ = pulumi.runtime.invoke('bytebase:index:lookupbytebaseCollection', __args__, opts=opts, typ=LookupbytebaseCollectionResult).value
 
-    return AwaitableLookupPineconeCollectionResult(
+    return AwaitableLookupbytebaseCollectionResult(
         dimension=pulumi.get(__ret__, 'dimension'),
         environment=pulumi.get(__ret__, 'environment'),
         name=pulumi.get(__ret__, 'name'),
@@ -126,13 +126,13 @@ def lookup_pinecone_collection(name: Optional[str] = None,
         vector_count=pulumi.get(__ret__, 'vector_count'))
 
 
-@_utilities.lift_output_func(lookup_pinecone_collection)
-def lookup_pinecone_collection_output(name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[LookupPineconeCollectionResult]:
+@_utilities.lift_output_func(lookup_bytebase_collection)
+def lookup_bytebase_collection_output(name: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[LookupbytebaseCollectionResult]:
     """
-    The result of a get operation on a Pinecone collection.
+    The result of a get operation on a bytebase collection.
 
 
-    :param str name: The name of the Pinecone collection.
+    :param str name: The name of the bytebase collection.
     """
     ...

@@ -8,55 +8,55 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace PineconeDatabase.Pinecone
+namespace bytebaseDatabase.bytebase
 {
-    public static class LookupPineconeCollection
+    public static class LookupbytebaseCollection
     {
         /// <summary>
-        /// The result of a get operation on a Pinecone collection.
+        /// The result of a get operation on a bytebase collection.
         /// </summary>
-        public static Task<LookupPineconeCollectionResult> InvokeAsync(LookupPineconeCollectionArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<LookupPineconeCollectionResult>("pinecone:index:lookupPineconeCollection", args ?? new LookupPineconeCollectionArgs(), options.WithDefaults());
+        public static Task<LookupbytebaseCollectionResult> InvokeAsync(LookupbytebaseCollectionArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<LookupbytebaseCollectionResult>("bytebase:index:lookupbytebaseCollection", args ?? new LookupbytebaseCollectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The result of a get operation on a Pinecone collection.
+        /// The result of a get operation on a bytebase collection.
         /// </summary>
-        public static Output<LookupPineconeCollectionResult> Invoke(LookupPineconeCollectionInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<LookupPineconeCollectionResult>("pinecone:index:lookupPineconeCollection", args ?? new LookupPineconeCollectionInvokeArgs(), options.WithDefaults());
+        public static Output<LookupbytebaseCollectionResult> Invoke(LookupbytebaseCollectionInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<LookupbytebaseCollectionResult>("bytebase:index:lookupbytebaseCollection", args ?? new LookupbytebaseCollectionInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class LookupPineconeCollectionArgs : global::Pulumi.InvokeArgs
+    public sealed class LookupbytebaseCollectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Pinecone collection.
+        /// The name of the bytebase collection.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        public LookupPineconeCollectionArgs()
+        public LookupbytebaseCollectionArgs()
         {
         }
-        public static new LookupPineconeCollectionArgs Empty => new LookupPineconeCollectionArgs();
+        public static new LookupbytebaseCollectionArgs Empty => new LookupbytebaseCollectionArgs();
     }
 
-    public sealed class LookupPineconeCollectionInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class LookupbytebaseCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Pinecone collection.
+        /// The name of the bytebase collection.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        public LookupPineconeCollectionInvokeArgs()
+        public LookupbytebaseCollectionInvokeArgs()
         {
         }
-        public static new LookupPineconeCollectionInvokeArgs Empty => new LookupPineconeCollectionInvokeArgs();
+        public static new LookupbytebaseCollectionInvokeArgs Empty => new LookupbytebaseCollectionInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class LookupPineconeCollectionResult
+    public sealed class LookupbytebaseCollectionResult
     {
         /// <summary>
         /// The dimension of the vectors stored in each record held in the collection.
@@ -84,7 +84,7 @@ namespace PineconeDatabase.Pinecone
         public readonly int VectorCount;
 
         [OutputConstructor]
-        private LookupPineconeCollectionResult(
+        private LookupbytebaseCollectionResult(
             int dimension,
 
             string environment,

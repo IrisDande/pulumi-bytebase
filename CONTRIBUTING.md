@@ -17,12 +17,12 @@ If you are not using VSCode, you will need to ensure the following tools are ins
 
 ### Build & test the boilerplate XYZ provider
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/pinecone-io/pulumi-pinecone)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/bytebase-io/pulumi-bytebase)
 
-1. [Open repo in GitHub Codespaces](https://codespaces.new/pinecone-io/pulumi-pinecone).
+1. [Open repo in GitHub Codespaces](https://codespaces.new/bytebase-io/pulumi-bytebase).
 1. Open a terminal in the CodeSpaces IDE.
 1. Run `make build install` to build and install the provider.
-1. Export your Pinecone API Token: `export PINECONE_API_KEY="0000b000-86cf-4ecf-a753-00000000000"`
+1. Export your bytebase API Token: `export bytebase_API_KEY="0000b000-86cf-4ecf-a753-00000000000"`
 1. Run `make up` to run the example program in `examples/yaml`.
 1. Run `make down` to tear down the example program.
 
@@ -39,7 +39,7 @@ This will:
 
 ```bash
 $ cd examples/ts
-$ yarn link @pinecone-database/pinecone
+$ yarn link @bytebase-database/bytebase
 $ yarn install
 $ pulumi stack init test
 $ pulumi up
@@ -50,7 +50,7 @@ $ pulumi up
 You now have:
 
 1. A `provider/` folder containing the building and implementation logic
-    1. `cmd/pulumi-resource-pinecone/main.go` - holds the provider's sample implementation logic.
+    1. `cmd/pulumi-resource-bytebase/main.go` - holds the provider's sample implementation logic.
 2. `deployment-templates` - a set of files to help you around deployment and publication
 3. `sdk` - holds the generated code libraries created by `pulumi-gen-xyz/main.go`
 4. `examples` a folder of Pulumi programs to try locally and/or use in CI.

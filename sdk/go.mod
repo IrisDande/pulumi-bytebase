@@ -1,4 +1,4 @@
-module github.com/pinecone-io/pulumi-pinecone/sdk
+module github.com/bytebase-io/pulumi-bytebase/sdk
 
 go 1.21
 

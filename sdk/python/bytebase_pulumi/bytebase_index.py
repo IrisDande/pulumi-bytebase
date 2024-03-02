@@ -12,20 +12,20 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PineconeIndexArgs', 'PineconeIndex']
+__all__ = ['bytebaseIndexArgs', 'bytebaseIndex']
 
 @pulumi.input_type
-class PineconeIndexArgs:
+class bytebaseIndexArgs:
     def __init__(__self__, *,
                  metric: pulumi.Input['IndexMetric'],
                  name: pulumi.Input[str],
-                 spec: pulumi.Input['PineconeSpecArgs'],
+                 spec: pulumi.Input['bytebaseSpecArgs'],
                  dimension: Optional[pulumi.Input[int]] = None):
         """
-        The set of arguments for constructing a PineconeIndex resource.
+        The set of arguments for constructing a bytebaseIndex resource.
         :param pulumi.Input['IndexMetric'] metric: The metric used to compute the distance between vectors.
-        :param pulumi.Input[str] name: The name of the Pinecone index.
-        :param pulumi.Input['PineconeSpecArgs'] spec: Describe how the index should be deployed.
+        :param pulumi.Input[str] name: The name of the bytebase index.
+        :param pulumi.Input['bytebaseSpecArgs'] spec: Describe how the index should be deployed.
         :param pulumi.Input[int] dimension: The dimensions of the vectors in the index. Defaults to 1536.
         """
         pulumi.set(__self__, "metric", metric)
@@ -50,7 +50,7 @@ class PineconeIndexArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Pinecone index.
+        The name of the bytebase index.
         """
         return pulumi.get(self, "name")
 
@@ -60,14 +60,14 @@ class PineconeIndexArgs:
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Input['PineconeSpecArgs']:
+    def spec(self) -> pulumi.Input['bytebaseSpecArgs']:
         """
         Describe how the index should be deployed.
         """
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: pulumi.Input['PineconeSpecArgs']):
+    def spec(self, value: pulumi.Input['bytebaseSpecArgs']):
         pulumi.set(self, "spec", value)
 
     @property
@@ -83,7 +83,7 @@ class PineconeIndexArgs:
         pulumi.set(self, "dimension", value)
 
 
-class PineconeIndex(pulumi.CustomResource):
+class bytebaseIndex(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -91,32 +91,32 @@ class PineconeIndex(pulumi.CustomResource):
                  dimension: Optional[pulumi.Input[int]] = None,
                  metric: Optional[pulumi.Input['IndexMetric']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['PineconeSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['bytebaseSpecArgs']]] = None,
                  __props__=None):
         """
-        Create a PineconeIndex resource with the given unique name, props, and options.
+        Create a bytebaseIndex resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] dimension: The dimensions of the vectors in the index. Defaults to 1536.
         :param pulumi.Input['IndexMetric'] metric: The metric used to compute the distance between vectors.
-        :param pulumi.Input[str] name: The name of the Pinecone index.
-        :param pulumi.Input[pulumi.InputType['PineconeSpecArgs']] spec: Describe how the index should be deployed.
+        :param pulumi.Input[str] name: The name of the bytebase index.
+        :param pulumi.Input[pulumi.InputType['bytebaseSpecArgs']] spec: Describe how the index should be deployed.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PineconeIndexArgs,
+                 args: bytebaseIndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PineconeIndex resource with the given unique name, props, and options.
+        Create a bytebaseIndex resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param PineconeIndexArgs args: The arguments to use to populate this resource's properties.
+        :param bytebaseIndexArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PineconeIndexArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(bytebaseIndexArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -128,7 +128,7 @@ class PineconeIndex(pulumi.CustomResource):
                  dimension: Optional[pulumi.Input[int]] = None,
                  metric: Optional[pulumi.Input['IndexMetric']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['PineconeSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['bytebaseSpecArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -136,7 +136,7 @@ class PineconeIndex(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PineconeIndexArgs.__new__(PineconeIndexArgs)
+            __props__ = bytebaseIndexArgs.__new__(bytebaseIndexArgs)
 
             __props__.__dict__["dimension"] = dimension
             if metric is None and not opts.urn:
@@ -149,8 +149,8 @@ class PineconeIndex(pulumi.CustomResource):
                 raise TypeError("Missing required property 'spec'")
             __props__.__dict__["spec"] = spec
             __props__.__dict__["host"] = None
-        super(PineconeIndex, __self__).__init__(
-            'pinecone:index:PineconeIndex',
+        super(bytebaseIndex, __self__).__init__(
+            'bytebase:index:bytebaseIndex',
             resource_name,
             __props__,
             opts)
@@ -158,9 +158,9 @@ class PineconeIndex(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'PineconeIndex':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'bytebaseIndex':
         """
-        Get an existing PineconeIndex resource's state with the given name, id, and optional extra
+        Get an existing bytebaseIndex resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -169,14 +169,14 @@ class PineconeIndex(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = PineconeIndexArgs.__new__(PineconeIndexArgs)
+        __props__ = bytebaseIndexArgs.__new__(bytebaseIndexArgs)
 
         __props__.__dict__["dimension"] = None
         __props__.__dict__["host"] = None
         __props__.__dict__["metric"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["spec"] = None
-        return PineconeIndex(resource_name, opts=opts, __props__=__props__)
+        return bytebaseIndex(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -206,13 +206,13 @@ class PineconeIndex(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Pinecone index.
+        The name of the bytebase index.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Output['outputs.PineconeSpec']:
+    def spec(self) -> pulumi.Output['outputs.bytebaseSpec']:
         """
         Describe how the index should be deployed.
         """

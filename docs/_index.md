@@ -1,10 +1,10 @@
 ---
-title: Pinecone
-meta_desc: Provides an overview of the Pinecone Provider for Pulumi.
+title: bytebase
+meta_desc: Provides an overview of the bytebase Provider for Pulumi.
 layout: package
 ---
 
-This Pulumi Pinecone Provider enables you to manage your [Pinecone](https://www.pinecone.io/) collections and indexes using any language of Pulumi Infrastructure as Code.
+This Pulumi bytebase Provider enables you to manage your [bytebase](https://www.bytebase.io/) collections and indexes using any language of Pulumi Infrastructure as Code.
 
 ## Example
 
@@ -16,14 +16,14 @@ This Pulumi Pinecone Provider enables you to manage your [Pinecone](https://www.
 ```javascript
 "use strict";
 const pulumi = require("@pulumi/pulumi");
-const pinecone = require("@pinecone-database/pulumi");
+const bytebase = require("@bytebase-database/pulumi");
 
-const myExampleIndex = new pinecone.PineconeIndex("my-example-index", {
+const myExampleIndex = new bytebase.bytebaseIndex("my-example-index", {
     name: "my-example-index",
-    metric: pinecone.IndexMetric.Cosine,
+    metric: bytebase.IndexMetric.Cosine,
     spec: {
         serverless: {
-            cloud: pinecone.ServerlessSpecCloud.Aws,
+            cloud: bytebase.ServerlessSpecCloud.Aws,
             region: "us-west-2",
         }
     }
@@ -38,14 +38,14 @@ exports.host = myExampleIndex.host;
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
-import * as pinecone from "@pinecone-database/pulumi";
+import * as bytebase from "@bytebase-database/pulumi";
 
-const myExampleIndex = new pinecone.PineconeIndex("my-example-index", {
+const myExampleIndex = new bytebase.bytebaseIndex("my-example-index", {
     name: "example-index-ts",
-    metric: pinecone.IndexMetric.Cosine,
+    metric: bytebase.IndexMetric.Cosine,
     spec: {
         serverless: {
-            cloud: pinecone.ServerlessSpecCloud.Aws,
+            cloud: bytebase.ServerlessSpecCloud.Aws,
             region: "us-west-2",
         },
     },
@@ -60,19 +60,19 @@ export const host = myExampleIndex.host;
 ```python
 """A Python Pulumi program"""
 import pulumi
-import pinecone_pulumi as pinecone
+import bytebase_pulumi as bytebase
 
-my_pinecone_index = pinecone.PineconeIndex("myPineconeIndex",
+my_bytebase_index = bytebase.bytebaseIndex("mybytebaseIndex",
    name="example-index",
-   metric=pinecone.IndexMetric.COSINE,
-   spec=pinecone.PineconeSpecArgs(
-       serverless=pinecone.PineconeServerlessSpecArgs(
-           cloud=pinecone.ServerlessSpecCloud.AWS,
+   metric=bytebase.IndexMetric.COSINE,
+   spec=bytebase.bytebaseSpecArgs(
+       serverless=bytebase.bytebaseServerlessSpecArgs(
+           cloud=bytebase.ServerlessSpecCloud.AWS,
            region="us-west-2",
        ),
    ))
 pulumi.export("output", {
-    "value": my_pinecone_index.host,
+    "value": my_bytebase_index.host,
 })
 ```
 
@@ -84,19 +84,19 @@ pulumi.export("output", {
 package main
 
 import (
-	"github.com/pinecone-io/pulumi-pinecone/sdk/go/pinecone"
+	"github.com/bytebase-io/pulumi-bytebase/sdk/go/bytebase"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 
-		myExampleIndex, err := pinecone.NewPineconeIndex(ctx, "my-example-index", &pinecone.PineconeIndexArgs{
+		myExampleIndex, err := bytebase.NewbytebaseIndex(ctx, "my-example-index", &bytebase.bytebaseIndexArgs{
 			Name:   pulumi.String("example-index-go"),
-			Metric: pinecone.IndexMetricCosine,
-			Spec: &pinecone.PineconeSpecArgs{
-				Serverless: &pinecone.PineconeServerlessSpecArgs{
-					Cloud:  pinecone.ServerlessSpecCloudAws,
+			Metric: bytebase.IndexMetricCosine,
+			Spec: &bytebase.bytebaseSpecArgs{
+				Serverless: &bytebase.bytebaseServerlessSpecArgs{
+					Cloud:  bytebase.ServerlessSpecCloudAws,
 					Region: pulumi.String("us-west-2"),
 				},
 			},
@@ -104,7 +104,7 @@ func main() {
 		if err != nil {
 			return err
 		}
-		ctx.Export("myPineconeIndexHost", myExampleIndex.Host)
+		ctx.Export("mybytebaseIndexHost", myExampleIndex.Host)
 
 		return nil
 	})
@@ -117,19 +117,19 @@ func main() {
 
 ```csharp
 using System.Collections.Generic;
-using PineconeDatabase.Pinecone.Inputs;
+using bytebaseDatabase.bytebase.Inputs;
 using Pulumi;
-using Pinecone = PineconeDatabase.Pinecone;
+using bytebase = bytebaseDatabase.bytebase;
 
 return await Deployment.RunAsync(() =>
 {
-    var myExampleIndex = new Pinecone.PineconeIndex("myExampleIndex", new Pinecone.PineconeIndexArgs
+    var myExampleIndex = new bytebase.bytebaseIndex("myExampleIndex", new bytebase.bytebaseIndexArgs
     {
         Name = "example-index-csharp",
-        Metric= Pinecone.IndexMetric.Cosine,
-        Spec= new Pinecone.Inputs.PineconeSpecArgs {
-            Serverless= new PineconeServerlessSpecArgs{
-                Cloud= Pinecone.ServerlessSpecCloud.Aws,
+        Metric= bytebase.IndexMetric.Cosine,
+        Spec= new bytebase.Inputs.bytebaseSpecArgs {
+            Serverless= new bytebaseServerlessSpecArgs{
+                Cloud= bytebase.ServerlessSpecCloud.Aws,
                 Region= "us-west-2",
         }
     },
@@ -137,7 +137,7 @@ return await Deployment.RunAsync(() =>
 
     return new Dictionary<string, object?>
     {
-        ["myPineconeIndexHost"] = myExampleIndex.Host
+        ["mybytebaseIndexHost"] = myExampleIndex.Host
     };
 });
 ```
@@ -147,13 +147,13 @@ return await Deployment.RunAsync(() =>
 {{% choosable language yaml %}}
 
 ```yaml
-name: pinecone-serverless-yaml
-description: A minimal Pinecone Serverless Pulumi YAML program
+name: bytebase-serverless-yaml
+description: A minimal bytebase Serverless Pulumi YAML program
 runtime: yaml
 
 resources:
   myExampleIndex:
-    type: pinecone:index:PineconeIndex
+    type: bytebase:index:bytebaseIndex
     properties:
       name: "example-index"
       metric: "cosine"

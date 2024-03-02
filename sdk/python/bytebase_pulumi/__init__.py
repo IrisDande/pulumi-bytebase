@@ -6,31 +6,31 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .lookup_pinecone_collection import *
-from .lookup_pinecone_index import *
-from .pinecone_collection import *
-from .pinecone_index import *
+from .lookup_bytebase_collection import *
+from .lookup_bytebase_index import *
+from .bytebase_collection import *
+from .bytebase_index import *
 from .provider import *
 from ._inputs import *
 from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pinecone_pulumi.config as __config
+    import bytebase_pulumi.config as __config
     config = __config
 else:
-    config = _utilities.lazy_import('pinecone_pulumi.config')
+    config = _utilities.lazy_import('bytebase_pulumi.config')
 
 _utilities.register(
     resource_modules="""
 [
  {
-  "pkg": "pinecone",
+  "pkg": "bytebase",
   "mod": "index",
-  "fqn": "pinecone_pulumi",
+  "fqn": "bytebase_pulumi",
   "classes": {
-   "pinecone:index:PineconeCollection": "PineconeCollection",
-   "pinecone:index:PineconeIndex": "PineconeIndex"
+   "bytebase:index:bytebaseCollection": "bytebaseCollection",
+   "bytebase:index:bytebaseIndex": "bytebaseIndex"
   }
  }
 ]
@@ -38,9 +38,9 @@ _utilities.register(
     resource_packages="""
 [
  {
-  "pkg": "pinecone",
-  "token": "pulumi:providers:pinecone",
-  "fqn": "pinecone_pulumi",
+  "pkg": "bytebase",
+  "token": "pulumi:providers:bytebase",
+  "fqn": "bytebase_pulumi",
   "class": "Provider"
  }
 ]

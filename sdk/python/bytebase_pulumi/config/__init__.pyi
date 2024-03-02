@@ -11,6 +11,6 @@ from .. import _utilities
 
 APIKey: Optional[str]
 """
-The API token for Pinecone.
+The API token for bytebase.
 """
 
