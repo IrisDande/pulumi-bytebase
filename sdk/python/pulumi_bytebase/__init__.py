@@ -11,11 +11,11 @@ _utilities.register(
     resource_modules="""
 [
  {
-  "pkg": "xyz",
+  "pkg": "bytebase",
   "mod": "index",
-  "fqn": "pulumi_xyz",
+  "fqn": "pulumi_bytebase",
   "classes": {
-   "xyz:index:Random": "Random"
+   "bytebase:index:Random": "Random"
   }
  }
 ]
@@ -23,9 +23,9 @@ _utilities.register(
     resource_packages="""
 [
  {
-  "pkg": "xyz",
-  "token": "pulumi:providers:xyz",
-  "fqn": "pulumi_xyz",
+  "pkg": "bytebase",
+  "token": "pulumi:providers:bytebase",
+  "fqn": "pulumi_bytebase",
   "class": "Provider"
  }
 ]

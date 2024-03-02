@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/sdk
+module github.com/IrisDande/pulumi-bytebase/sdk
 
 go 1.21
 

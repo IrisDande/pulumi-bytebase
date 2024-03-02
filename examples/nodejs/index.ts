@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as xyz from "@pulumi/xyz";
+import * as bytebase from "@pulumi/bytebase";
 
-const myRandomResource = new xyz.Random("myRandomResource", {length: 24});
+const myRandomResource = new bytebase.Random("myRandomResource", {length: 24});
 export const output = {
     value: myRandomResource.result,
 };

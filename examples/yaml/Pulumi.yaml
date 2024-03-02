@@ -1,13 +1,13 @@
-name: provider-xyz-native
+name: provider-bytebase-native
 runtime: yaml
 plugins:
   providers:
-    - name: xyz
+    - name: bytebase
       path: ../../bin
 
 resources:
   myRandomResource:
-    type: xyz:Random
+    type: bytebase:Random
     properties:
       length: 24
 
