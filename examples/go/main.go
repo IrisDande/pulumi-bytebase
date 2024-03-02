@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/IrisDande/pulumi-bytebase/sdk/go/bytebase"
+	"github.com/pulumi/pulumi-bytebase/sdk/go/bytebase"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 

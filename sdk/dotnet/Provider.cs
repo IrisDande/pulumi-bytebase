@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.bytebase
+namespace Pulumi.Bytebase
 {
-    [bytebaseResourceType("pulumi:providers:bytebase")]
+    [BytebaseResourceType("pulumi:providers:bytebase")]
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>

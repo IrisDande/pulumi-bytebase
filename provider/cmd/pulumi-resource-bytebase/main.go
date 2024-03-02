@@ -17,7 +17,8 @@ package main
 import (
 	p "github.com/pulumi/pulumi-go-provider"
 
-	bytebase "github.com/IrisDande/pulumi-bytebase/provider"
+	bytebase "github.com/IrisDande/pulumi-bytebase/provider/pkg/bytebase"
+	"github.com/IrisDande/pulumi-bytebase/provider/pkg/version"
 )
 
 // Serve the provider against Pulumi's Provider protocol.

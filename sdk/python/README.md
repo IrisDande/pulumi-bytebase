@@ -23,7 +23,7 @@ If you are not using VSCode, you will need to ensure the following tools are ins
 * [.NET](https://dotnet.microsoft.com/download)
 
 
-### Test the boilerplate bytebase provider before making changes
+### Build & test the boilerplate bytebase provider
 
 1. Create a new Github CodeSpaces environment using this repository.
 1. Open a terminal in the CodeSpaces environment.

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.bytebase
+namespace Pulumi.Bytebase
 {
-    [bytebaseResourceType("bytebase:index:Random")]
+    [BytebaseResourceType("bytebase:index:Random")]
     public partial class Random : global::Pulumi.CustomResource
     {
         [Output("length")]
