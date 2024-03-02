@@ -93,7 +93,12 @@ up::
 	pulumi stack select dev && \
 	pulumi config set name dev && \
 	pulumi up -y
-
+apply::
+	$(call pulumi_login) \
+	cd ${EXAMPLES_DIR} && \
+	pulumi stack select dev && \
+	pulumi config set name dev && \
+	pulumi up -y
 down::
 	$(call pulumi_login) \
 	cd ${EXAMPLES_DIR} && \
