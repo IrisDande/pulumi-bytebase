@@ -15,3 +15,4 @@ provider/**/schema-embed.json
 .devcontainer.json
 **/version.txt
 **/nuget
+.personal
