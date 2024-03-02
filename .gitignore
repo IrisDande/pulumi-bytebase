@@ -1,18 +1,23 @@
-/vendor/
-**/bin/
+bin
+VERSION
+.pulumi
+sdk/**/bin/
 **/obj/
 **/node_modules/
-**/.vs
-**/.idea
-**/.ionide
-.pulumi
-Pulumi.*.yaml
+vendor/
+**/Pulumi.*.yaml
+**/yarn-error.log
 yarn.lock
-ci-scripts
-/nuget/
-provider/**/schema-embed.json
-**/dist
-.devcontainer.json
+package-lock.json
+.idea/
 **/version.txt
-**/nuget
+**/dist
+nuget/
+
+ci-scripts/
+*.tar.gz
+
+# This is an artifact only so that we can pass the
+# schema for the provider GetSchema gRPC request
+/provider/cmd/pulumi-resource-*/*/schema.json
 .personal

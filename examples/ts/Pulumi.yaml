@@ -1,6 +1,0 @@
-name: bytebase-ts
-runtime: nodejs
-plugins:
-  providers:
-    - name: bytebase
-      path: ../../bin

@@ -1,6 +1,0 @@
-name: bytebase-python
-runtime: python
-plugins:
-  providers:
-    - name: bytebase
-      path: ../../bin

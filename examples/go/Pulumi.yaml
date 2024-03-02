@@ -1,6 +1,0 @@
-name: bytebase-go
-runtime: go
-plugins:
-  providers:
-    - name: bytebase
-      path: ../../bin

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk", "sdk", "{0A508953-934E-4995-99C6-96B94265C456}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulumi.bytebase", "sdk\dotnet\Pulumi.bytebase.csproj", "{9191EA3D-5C00-4A56-9264-C06EF3289799}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9191EA3D-5C00-4A56-9264-C06EF3289799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9191EA3D-5C00-4A56-9264-C06EF3289799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9191EA3D-5C00-4A56-9264-C06EF3289799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9191EA3D-5C00-4A56-9264-C06EF3289799}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9191EA3D-5C00-4A56-9264-C06EF3289799} = {0A508953-934E-4995-99C6-96B94265C456}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76CBD06B-272A-46B8-95B4-B180FE9CB7F9}
+	EndGlobalSection
+EndGlobal
